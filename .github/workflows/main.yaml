@@ -1,10 +1,10 @@
 name: Main Pipeline
 
-on:
+on:  
   push:
+  pull_request:
     branches:
       - main
-
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -77,6 +77,10 @@ jobs:
 
       - name: Run LHCI autorun
         run: |
-          npx @lhci/cli autorun
+          npx @lhci/cli autorun --upload.target=temporary-public-storage"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: Running Page Speed Insights
+        uses: jakepartusch/psi-action@v1
+        with:
+          url: https://jake.partus.ch
