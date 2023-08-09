@@ -7,7 +7,7 @@ on:
 
 jobs: 
     hello_world: 
-        runs-on: ubuntu-lastest
+        runs-on: ubuntu-latest
         steps: 
             - name: Say Hello World
               run: echo "Hello World! :"
