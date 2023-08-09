@@ -21,7 +21,8 @@ jobs:
         run: npm run lint
 
   build:
-    runs-on: ubuntu-18.04
+    needs: [lint]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -40,6 +41,7 @@ jobs:
           path: dist
 
   lighthouse:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
