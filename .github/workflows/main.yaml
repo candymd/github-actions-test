@@ -55,7 +55,6 @@ jobs:
           configPath: "./lighthouserc.json"
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - name: Results details
-        run: lhci autorun
+          command: npm run lhci:autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
