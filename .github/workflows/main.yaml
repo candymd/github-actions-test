@@ -1,6 +1,6 @@
 name: Main Pipeline
 
-on:  
+on:
   push:
   pull_request:
     branches:
@@ -77,7 +77,7 @@ jobs:
 
       - name: Run LHCI autorun
         run: |
-          npx @lhci/cli autorun --upload.target=temporary-public-storage"
+          npx @lhci/cli autorun --upload.target=temporary-public-storage
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       - name: Running Page Speed Insights
